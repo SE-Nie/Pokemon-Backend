@@ -1,17 +1,24 @@
 const express = require ('express');
-
 const router = express.Router();
+const fs = require('fs');
+const rawdata = fs.readFileSync("pokemondata.json")
+const pokemonData = JSON.parse(rawdata)
 
 router.get('/',(req, res)=>{
-    res.send('all data');
+
+    console.log(pokemonData);
+    res.send(pokemonData.name);
+
 });
 
-router.get('/pokemon/:id',(req, res)=>{
+
+router.get('/:id',(req, res)=>{
     res.send('indiv by id');
 });
 
 
-router.get('/pokemon/:id/:info',(req, res)=>{
+
+router.get('/:id/:info',(req, res)=>{
     res.send('name type base');
 });
 
