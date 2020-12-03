@@ -4,7 +4,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
 const pokemonRoute = require('./routes/pokemon')
-//require ('dotenv/config');
+const {PORT = 3000}=process.env
 const bodyParser = require('body-parser')
 
 app.use(bodyParser.json())
@@ -14,11 +14,11 @@ app.use(morgan('common'))
 
 app.use('/pokemon', pokemonRoute)
 
-//connect to DB
-//mongoose.connect(process.env.DB_CONNECTION,
-//  {useNewUrlParser: true},
-//()=> console.log('connected to DB!'))
 
-app.listen(4000, function () {
-	console.log('Server started on 4000')
+
+
+
+
+app.listen(PORT,  ()=> {
+	console.log(`server started on ${PORT}`)
 })
