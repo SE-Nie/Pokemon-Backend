@@ -4,7 +4,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
 const pokemonRoute = require('./routes/pokemon')
-const {PORT = 3000}=process.env
+const {PORT = 4000}=process.env
 const bodyParser = require('body-parser')
 
 app.use(bodyParser.json())
@@ -19,6 +19,6 @@ app.use('/pokemon', pokemonRoute)
 
 
 
-app.listen(PORT,  ()=> {
+app.listen(PORT, ()=> {
 	console.log(`server started on ${PORT}`)
 })
